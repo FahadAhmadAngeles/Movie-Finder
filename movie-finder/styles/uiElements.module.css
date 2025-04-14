@@ -10,54 +10,62 @@
     display: flex;
   }
 
-.movieContainer {
+
+
+  .movieContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--background);
   }
   
- 
-  .movie {
+  .movieCard {
     display: flex;
-    align-items: center;
-    width: 90%;
-    max-width: 800px;
-    padding: 20px;
-    background: #fff;
-    border: 1px solid (--black);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background-color: var(--white);
+    border: 1px solid var(--gray);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .movieLink {
     text-decoration: none;
-    color: (--black);
+    color: inherit;
   }
   
-
-  .movie:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  .movieCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   }
   
-
+  .movieImage {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
   .movieContent {
     display: flex;
     flex-direction: column;
+    color: var(--black);
   }
   
- 
   .movieContent strong {
-    font-size: 1.5em;
-    color: #222;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--blue);
   }
   
-
   .movieContent p {
-    margin: 0;
-    color: #555;
+    margin-top: 0.5rem;
+    color: var(--foreground);
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
   
