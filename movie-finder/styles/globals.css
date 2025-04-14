@@ -1,11 +1,12 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --black: #272727;
-  --blue: #2B50AA;
-  --white: #F1F2EB;
-  --gray: #D8DAD3; 
+  --black: #1B1B1E;
+  --darkgray: #373F51;
+  --primary: #58A4B0;
+  --secondary: #A9BCD0;
+  --white: #FFFFFF;
+  --gray: #A9BCD0;
 }
+
 
 
 html,
@@ -14,10 +15,7 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-}
+
 
 * {
   box-sizing: border-box;

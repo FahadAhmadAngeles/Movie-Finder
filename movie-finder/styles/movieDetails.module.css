@@ -1,0 +1,102 @@
+.detailsContainer {
+    background-color: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    padding: 3rem 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* This layout stretches to 100%, and flexes for expansion */
+  .flexWrapper {
+    display: flex;
+    background-color: var(--darkgray);
+    border-radius: 16px;
+    padding: 2rem;
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 95vw;   
+    margin: 0 auto;       
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .flexWrapper:hover {
+    transform: scale(1.01);
+  }
+  
+
+  .poster {
+    width: 300px;
+    height: auto;
+    border: 3px solid var(--primary);
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .poster:hover {
+    transform: scale(1.03);
+  }
+  
+
+  .infoWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary);
+    padding: 2rem;
+    border-radius: 10px;
+    flex: 1;
+    gap: 1.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .infoWrapper:hover {
+    background-color: var(--primary);
+  }
+  
+  .infoBlock {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1.25rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .infoBlock:hover {
+    background-color: var(--gray);
+    color: var(--black);
+  }
+  
+ 
+  @media (max-width: 900px) {
+    .flexWrapper {
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+    }
+  
+    .poster {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .infoWrapper {
+      width: 100%;
+      padding: 1.5rem;
+    }
+  }

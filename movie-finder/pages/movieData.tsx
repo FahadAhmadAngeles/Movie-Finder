@@ -59,7 +59,7 @@
       
           const json = await res.json();
       
-          const first = json.shows?.[0];
+          const first = json[0];
           if (!first) return null;
       
           return {
@@ -68,6 +68,7 @@
             overview: first.overview,
             releaseYear: first.releaseYear,
             poster: first.imageSet?.verticalPoster?.w240 || null,
+            bigPoster: first.imageSet?.verticalPoster?.w360 || null,
           };
         } catch (error) {
           console.error("Error fetching movie by title:", error);
@@ -75,4 +76,31 @@
         }
       }
       
+      export async function fetchMoviePlot(title: string, year: string | number) {
+        const apiKey = '99622f81'; 
+        const encodedTitle = encodeURIComponent(title);
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodedTitle}&y=${year}&plot=full`;
+      
+        try {
+          const res = await fetch(url);
+      
+          if (!res.ok) {
+            throw new Error(`OMDb Fetch failed: ${res.status}`);
+          }
+      
+          const data = await res.json();
+      
+          if (data.Response === "False") {
+            console.warn(`No movie found: ${data.Error}`);
+            return null;
+          }
+      
+          return {
+            plot: data.Plot
+          };
+        } catch (err) {
+          console.error("❌ Error fetching movie plot:", err);
+          return null;
+        }
+      }
       

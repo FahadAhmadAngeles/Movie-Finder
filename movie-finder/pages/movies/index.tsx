@@ -1,11 +1,12 @@
 
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Navbar, DisplayMovies} from "../uiElements";
 import React from "react";
 import Link from "next/link";
+import styles from "../../styles/Home.module.css";
 
+console.log(styles);
 
 export default function Home() {
   return (
@@ -18,8 +19,8 @@ export default function Home() {
       </Head>
       <div>
       <Navbar />
-      <main>
-        <section>
+      <main >
+          <section className={styles.movies} style={{ backgroundColor: "red" }}>
         <h1>Movie Page</h1>
           <DisplayMovies />
         </section>

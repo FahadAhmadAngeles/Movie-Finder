@@ -18,7 +18,7 @@ export default function Home({ topRatedMovies }) {
       <div>
       <Navbar />
       <main>
-        <section>
+        <section className={styles.movies}>
           <h1>Main Page</h1>
           <DisplayMovies topRatedMovies={topRatedMovies} />
         </section>

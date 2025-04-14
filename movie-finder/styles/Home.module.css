@@ -4,3 +4,12 @@
   width: auto;
   height: auto;
 }
+
+.movies {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.movies * {
+  text-decoration: none;
+}

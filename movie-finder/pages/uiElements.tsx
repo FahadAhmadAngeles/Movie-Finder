@@ -4,6 +4,7 @@ import styles from "../styles/uiElements.module.css";
 
 function Navbar() {
   return (
+    
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" href="/">
@@ -35,6 +36,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
+  
   );
 }
 
@@ -50,15 +52,16 @@ function Navbar() {
         <div className={styles.movieContainer}>
           <h2>Top Rated Movies</h2>
           {topRatedMovies.map((movie) => (
-            <Link className={styles.movieLink} href={`/movies/${encodeURIComponent(movie.originalTitle)}`} key={movie.id}>
-              <div className={styles.movieCard}>
-                <img src={movie.poster} alt={movie.originalTitle} className={styles.movieImage} />
-                <div className={styles.movieContent}>
-                  <strong>{movie.originalTitle}</strong>  Released {movie.releaseYear}
-                  <p>{movie.overview}</p>
-                </div>
-              </div>
-            </Link>
+           <Link href={`/movies/${encodeURIComponent(movie.originalTitle)}`} key={movie.id} className={styles.movieCard}>
+           
+             <img src={movie.poster} alt={movie.originalTitle} className={styles.movieImage} />
+             <div className={styles.movieContent}>
+               <strong>{movie.originalTitle}</strong> Released {movie.releaseYear}
+               <p>{movie.overview}</p>
+             </div>
+          
+         </Link>
+         
           ))}
         </div>
       </div>
