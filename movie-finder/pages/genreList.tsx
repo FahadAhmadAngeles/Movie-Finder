@@ -5,16 +5,13 @@ import { fetchMoviesByGenre } from "../pages/movieData";
 import Link from "next/link";
 
 export async function getServerSideProps() {
-  // Fetch Comedy Movies
+  
   const comedyMovies = await fetchMoviesByGenre("comedy");
 
-  // Fetch Action Movies
   const actionMovies = await fetchMoviesByGenre("action");
 
-  // Fetch Romance Movies
   const romanceMovies = await fetchMoviesByGenre("romance");
 
-  // Fetch Horror Movies
   const horrorMovies = await fetchMoviesByGenre("horror");
 
   return {
@@ -32,7 +29,7 @@ export default function GenreList({ comedyMovies, actionMovies, romanceMovies, h
     <>
       <Navbar />
       <div className={styles.container}>
-        {/* Comedy Movies */}
+ 
         <div className={styles.genreSection}>
           <h2>Comedy</h2>
           <div className={styles.movieGrid}>
@@ -49,7 +46,7 @@ export default function GenreList({ comedyMovies, actionMovies, romanceMovies, h
           </div>
         </div>
 
-        {/* Action Movies */}
+       
         <div className={styles.genreSection}>
           <h2>Action</h2>
           <div className={styles.movieGrid}>
@@ -66,7 +63,7 @@ export default function GenreList({ comedyMovies, actionMovies, romanceMovies, h
           </div>
         </div>
 
-        {/* Romance Movies */}
+   
         <div className={styles.genreSection}>
           <h2>Romance</h2>
           <div className={styles.movieGrid}>
@@ -83,7 +80,6 @@ export default function GenreList({ comedyMovies, actionMovies, romanceMovies, h
           </div>
         </div>
 
-        {/* Horror Movies */}
         <div className={styles.genreSection}>
           <h2>Horror</h2>
           <div className={styles.movieGrid}>

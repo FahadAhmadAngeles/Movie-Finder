@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Navbar } from "./uiElements";
 import Link from "next/link";
-import styles from "../styles/genreList.module.css";
+import styles from "../styles/watchList.module.css";
 
 export default function WatchList() {
   const [watchlist, setWatchlist] = useState([]);
 
-  // Load the watchlist from localStorage on component mount
+ 
   useEffect(() => {
     const storedWatchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
     setWatchlist(storedWatchlist);
   }, []);
 
-  // Function to remove a movie from the watchlist
+
   const removeFromWatchlist = (id) => {
     const updatedWatchlist = watchlist.filter((movie) => movie.id !== id);
     setWatchlist(updatedWatchlist);
