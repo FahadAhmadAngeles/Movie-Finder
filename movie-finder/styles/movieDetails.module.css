@@ -63,6 +63,7 @@
     flex: 1;
     gap: 1.5rem;
     transition: background-color 0.3s ease;
+    position: relative;
   }
   
   .infoWrapper:hover {
@@ -73,6 +74,7 @@
     background-color: var(--primary);
     color: var(--white);
     padding: 1.25rem;
+    position: relative;
     border-radius: 8px;
     transition: background-color 0.3s ease;
   }
@@ -82,6 +84,51 @@
     color: var(--black);
   }
   
+  .services {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .serviceLogo img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .serviceLogo img:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+  
+  .buttonWrapper {
+    position: absolute;
+    right: 1rem;
+    top: 0; 
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--darkgray);
+    border-radius: 0 0 8px 8px;
+    z-index: 10;
+  
+  }
+  
+
+  .button {
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-color: transparent;
+
+    
+  }
+
  
   @media (max-width: 900px) {
     .flexWrapper {

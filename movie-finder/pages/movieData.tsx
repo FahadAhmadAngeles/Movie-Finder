@@ -1,4 +1,4 @@
-    export async function fetchMovieData(url: string) {
+export async function fetchMovieData(url: string) {
         const options = {
           method: "GET",
           headers: {
@@ -24,6 +24,7 @@
             id: show.id,
             originalTitle: show.originalTitle,
             overview: show.overview,
+            rating: show.rating,
             releaseYear: show.releaseYear,
             poster: show.imageSet?.verticalPoster?.w240 || null
           }));
@@ -61,7 +62,9 @@
       
           const first = json[0];
           if (!first) return null;
-      
+          
+
+
           return {
             id: first.id,
             originalTitle: first.originalTitle,
@@ -69,6 +72,15 @@
             releaseYear: first.releaseYear,
             poster: first.imageSet?.verticalPoster?.w240 || null,
             bigPoster: first.imageSet?.verticalPoster?.w360 || null,
+            streamingOptions: first.streamingOptions?.ca
+              ? Array.from(
+                  new Map(
+                    first.streamingOptions.ca.map((option) => [option.service.id, option])
+                  ).values()
+                )
+              : [],
+
+
           };
         } catch (error) {
           console.error("Error fetching movie by title:", error);
@@ -78,8 +90,7 @@
       
       export async function fetchMoviePlot(title: string, year: string | number) {
         const apiKey = '99622f81'; 
-        const encodedTitle = encodeURIComponent(title);
-        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodedTitle}&y=${year}&plot=full`;
+        const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(title)}&y=${year}&plot=full`;
       
         try {
           const res = await fetch(url);
@@ -103,4 +114,42 @@
           return null;
         }
       }
-      
+
+export async function fetchMoviesByGenre(genre: string) {
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "70ac253f68mshd90b1e80fb1dd12p10e94cjsn52e532c9bcc7",
+      "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+    },
+  };
+
+  const url = `https://streaming-availability.p.rapidapi.com/shows/search/filters?country=ca&series_granularity=show&genres=${encodeURIComponent(genre)}&order_direction=asc&order_by=original_title&year_min=2020&show_original_language=en&output_language=en&show_type=movie&rating_min=53`;
+
+  try {
+    const res = await fetch(url, options);
+
+    if (!res.ok) {
+      throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
+    }
+
+    const json = await res.json();
+
+    if (!Array.isArray(json.shows)) {
+      console.error("Unexpected API format: shows is not an array");
+      return [];
+    }
+
+    return json.shows.map((show: any) => ({
+      id: show.id,
+      originalTitle: show.originalTitle,
+      overview: show.overview,
+      rating: show.rating,
+      releaseYear: show.releaseYear,
+      poster: show.imageSet?.verticalPoster?.w240 || null,
+    }));
+  } catch (error) {
+    console.error(`Error fetching movies for genre "${genre}":`, error);
+    return [];
+  }
+}

@@ -1,0 +1,40 @@
+.container {
+  padding: 2rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.genreSection {
+  margin-bottom: 3rem;
+}
+
+.genreSection h2 {
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.movieCard {
+  text-align: center;
+  background-color: var(--darkgray);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.moviePoster {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

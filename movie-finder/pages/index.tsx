@@ -3,10 +3,18 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Navbar, DisplayMovies} from "./uiElements";
-import React from "react";
+import React, { useEffect } from "react";
 import { fetchMovieData } from "./movieData";
 
 export default function Home({ topRatedMovies }) {
+  useEffect(() => {
+    const existing = localStorage.getItem("watchlist");
+    if (!existing) {
+      localStorage.setItem("watchlist", JSON.stringify([]));
+    }
+  }, []);
+
+  
   return (
     <>
       <Head>

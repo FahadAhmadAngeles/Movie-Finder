@@ -1,0 +1,59 @@
+.container {
+  padding: 2rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.movieCard {
+  text-align: center;
+  background-color: var(--darkgray);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+}
+
+.movieLink {
+    text-decoration: none !important;
+    color: var(--white) !important;
+    display: inline-block;
+}
+
+.movieCard:hover {
+  transform: scale(1.05);
+}
+
+.moviePoster {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.button {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+.emptyMessage {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: var(--gray);
+}
